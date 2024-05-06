@@ -12,27 +12,43 @@
   <a id="arLink" href="#">Abrir AR</a>
 
   <script>
-    function isAndroid() {
-      return /Android/i.test(navigator.userAgent);
+    function getDevice() {
+      if (/Android/i.test(navigator.userAgent)) {
+        return "android";
+      }
+
+      if (/iPhone/i.test(navigator.userAgent)) {
+        return "iphone";
+      }
+
+      return "fallback";
     }
 
-    function isiPhone() {
-      return /iPhone/i.test(navigator.userAgent);
+    function buildSceneViewerUrl() {
+      var androidFile = `https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/GlamVelvetSofa/glTF/GlamVelvetSofa.gltf`;
+      var package = `com.google.android.googlequicksearchbox`;
+      var scheme = `https`;
+      var action = `android.intent.action.VIEW`;
+      var fallBackUrl = `wrong.html`;
+      var sceneViewer = `intent://arvr.google.com/scene-viewer/1.0`;
+
+      return `${sceneViewer}?file=${androidFile}#Intent;scheme=${scheme};action=${action};package=${package};S.browser_fallback_url=${fallBackUrl};end;`;
     }
+
+
+    const devices = {
+      iphone: { url: "iphone.usdz", text: "iPhone" },
+      android: { url: buildSceneViewerUrl(), text: "Android" },
+      fallback: { url: "index.html", text: "Something went wrong (not Android or iPhone)" },
+    }
+
 
     function updateARLink() {
       var arLink = document.getElementById("arLink");
+      var device = getDevice();
 
-      if (isAndroid()) {
-        arLink.href = "intent://arvr.google.com/scene-viewer/1.0?file=android.glb#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;";
-        arLink.textContent = "Abrir AR no Android";
-      } else if (isiPhone()) {
-        arLink.href = "iphone.usdz";
-        arLink.textContent = "Abrir AR no iPhone";
-      } else {
-        arLink.href = "fallback-link.html";
-        arLink.textContent = "Abrir AR";
-      }
+      arLink.href = devices[device].url;
+      arLink.textContent = `Open AR on ${devices[device].text}`;
     }
 
     window.onload = updateARLink;
