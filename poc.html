@@ -27,7 +27,7 @@
       const devices = {
         iphone: { url: "mac-pro.usdz", text: "Open AR on iPhone" },
         android: { url: buildSceneViewerUrl(), text: "Open AR on Android" },
-        fallback: { url: "index.html", text: "Something went wrong (not Android or iPhone)" },
+        fallback: { url: "#", text: "Use an Android or iPhone to open AR" },
       }
 
       if (/Android/i.test(navigator.userAgent)) {
@@ -38,7 +38,7 @@
         return devices["iphone"];
       }
 
-      return device["fallback"];
+      return devices["fallback"];
     }
 
     function updateARLink() {
