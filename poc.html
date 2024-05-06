@@ -12,18 +12,6 @@
   <a id="arLink" href="#">Abrir AR</a>
 
   <script>
-    function getDevice() {
-      if (/Android/i.test(navigator.userAgent)) {
-        return "android";
-      }
-
-      if (/iPhone/i.test(navigator.userAgent)) {
-        return "iphone";
-      }
-
-      return "fallback";
-    }
-
     function buildSceneViewerUrl() {
       var androidFile = `https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/GlamVelvetSofa/glTF/GlamVelvetSofa.gltf`;
       var package = `com.google.android.googlequicksearchbox`;
@@ -35,20 +23,30 @@
       return `${sceneViewer}?file=${androidFile}#Intent;scheme=${scheme};action=${action};package=${package};S.browser_fallback_url=${fallBackUrl};end;`;
     }
 
+    function getDevice() {
+      const devices = {
+        iphone: { url: "iphone.usdz", text: "Open AR on iPhone" },
+        android: { url: buildSceneViewerUrl(), text: "Open AR on Android" },
+        fallback: { url: "index.html", text: "Something went wrong (not Android or iPhone)" },
+      }
 
-    const devices = {
-      iphone: { url: "iphone.usdz", text: "iPhone" },
-      android: { url: buildSceneViewerUrl(), text: "Android" },
-      fallback: { url: "index.html", text: "Something went wrong (not Android or iPhone)" },
+      if (/Android/i.test(navigator.userAgent)) {
+        return devices["android"];
+      }
+
+      if (/iPhone/i.test(navigator.userAgent)) {
+        return devices["iphone"];
+      }
+
+      return device["fallback"];
     }
-
 
     function updateARLink() {
       var arLink = document.getElementById("arLink");
       var device = getDevice();
 
-      arLink.href = devices[device].url;
-      arLink.textContent = `Open AR on ${devices[device].text}`;
+      arLink.href = device.url;
+      arLink.textContent = device.text;
     }
 
     window.onload = updateARLink;
