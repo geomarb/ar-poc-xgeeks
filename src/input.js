@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (arModelUrl !== "") {
       if (selectedDevice === "iphone") {
-        window.location.href = encodeURIComponent(arModelUrl);
+        window.location.href = arModelUrl;
       } else if (selectedDevice === "android") {
         window.location.href =
           "intent://arvr.google.com/scene-viewer/1.0?file=" +
