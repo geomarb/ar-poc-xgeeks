@@ -11,7 +11,7 @@ function buildSceneViewerUrl() {
 
 function getDevice() {
   const devices = {
-    iphone: { url: "mac-pro.usdz", text: "Open AR on iPhone" },
+    iphone: { url: "3d/iphone/mac-pro.usdz", text: "Open AR on iPhone" },
     android: { url: buildSceneViewerUrl(), text: "Open AR on Android" },
     fallback: {
       url: "#",
