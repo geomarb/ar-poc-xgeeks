@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR POC xgeeks</title>
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>AR POC xgeeks</h1>
+    <div class="step-box">
+      <h2>Insert the AR model's URL</h2>
+      <div class="dropdown-container">
+        <div class="dropdown-option selected" id="iphoneOption" data-device="iphone">iPhone</div>
+        <div class="dropdown-option" id="androidOption" data-device="android">Android</div>
+      </div>
+      <input type="hidden" id="selectedDevice" value="iphone">
+    </div>
+    <div class="step-box">
+      <input type="text" id="fileInput" class="input-field" placeholder="Enter the model's URL">
+      <div id="selectedDeviceText"><span>".usdz"</span> is expected</div>
+    </div>
+    <div class="step-box">
+      <a id="arLink" href="#" class="preview-button">Preview AR Model</a>
+    </div>
+    <a class="menu" href="index.html">Back to menu</a>
+  </div>
+
+  <script src="./src/input.js"></script>
+</body>
+
+</html>

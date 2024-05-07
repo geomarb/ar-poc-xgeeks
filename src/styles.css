@@ -42,8 +42,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-
-
 a {
   align-self: center;
   background-color: #007bff;
@@ -64,4 +62,58 @@ a:hover {
 
 a:active {
   background-color: #004080;
+}
+
+.step-box {
+  margin-bottom: 30px;
+}
+
+
+.dropdown-container {
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown-option {
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+.dropdown-option.selected {
+  background-color: #0056b3;
+}
+
+.input-field {
+  width: 80vw;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.preview-button {
+  display: block;
+  text-align: center;
+  padding: 15px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+#selectedDeviceText {
+  width: 80vw;
+  font-size: .9rem;
+  font-weight: 300;
+  text-align: end;
+}
+
+#selectedDeviceText span {
+  font-weight: 700;
 }
