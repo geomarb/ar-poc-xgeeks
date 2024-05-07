@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR POC xgeeks</title>
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>AR POC xgeeks</h1>
+    <h2>Model viewer test</h2>
+    <br>
+    <br>
+
+    <model-viewer src="https://github.com/KhronosGroup/glTF-Sample-Assets/blob/main/Models/Duck/glTF-Binary/Duck.glb"
+      ios-src="assets/iphone/mac-pro.usdz" ar-modes="quick-look scene-viewer webxr" quick-look-browsers="safari chrome"
+      ar camera-controls loading="eager" style="background-color: lightgray;" alt="AR Model">
+      <div slot="poster" class="loader"></div>
+      <button slot="ar-button" class="cta">
+        <img src="./assets/cta.png" alt="3D Icon" />
+      </button>
+    </model-viewer>
+    <a class="menu" href="index.html">Back to menu</a>
+  </div>
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+</body>
+
+</html>

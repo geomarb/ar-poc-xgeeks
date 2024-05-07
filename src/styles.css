@@ -117,3 +117,22 @@ a:active {
 #selectedDeviceText span {
   font-weight: 700;
 }
+
+.cta {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.loader {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url(assets/loader.e67ce.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+}
