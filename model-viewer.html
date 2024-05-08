@@ -14,20 +14,20 @@
     <h2>Model viewer test</h2>
     <br>
     <br>
-
     <model-viewer src="https://github.com/KhronosGroup/glTF-Sample-Assets/blob/main/Models/Duck/glTF-Binary/Duck.glb"
-      ios-src="assets/iphone/mac-pro.usdz" ar-modes="quick-look scene-viewer webxr" quick-look-browsers="safari chrome"
-      ar camera-controls loading="eager" style="background-color: lightgray;" alt="AR Model">
-      <div slot="poster" class="loader"></div>
-      <button slot="ar-button" class="cta">
-        <img src="./assets/cta.png" alt="3D Icon" />
-      </button>
+      quick-look-browsers="safari chrome" ar ar-scale="100%" camera-controls ar-placement="floor" loading="auto"
+      alt="AR Model">
     </model-viewer>
+    <br>
+    <br>
     <a class="menu" href="index.html">Back to menu</a>
   </div>
 
+
+
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+
 </body>
 
 </html>
