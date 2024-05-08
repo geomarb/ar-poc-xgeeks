@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function updateSelectedDevice(device) {
     selectedDeviceText.textContent =
-      device === "iphone" ? ` ".usdz"` : ` ".gltf"/".glb"`;
+      device === "iphone" ? ` ".usdz"` : ` ".gltf"`;
   }
 
   function toggleSelectedDevice() {
